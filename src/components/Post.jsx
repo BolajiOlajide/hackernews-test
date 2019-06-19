@@ -1,7 +1,7 @@
 import React from 'react';
 
 // utils
-import { timeDifferenceForDate } from '../utils';
+import { timeDifferenceForDate, toBaseURL } from '../utils';
 
 
 function Post({ title, url, score, by: { hnId }, descendants, timeISO }) {
@@ -9,12 +9,15 @@ function Post({ title, url, score, by: { hnId }, descendants, timeISO }) {
 
   return (
     <section className="hackernews__post">
-      <a href={url} target="_blank" rel="noopener noreferrer" className="post__title">
-        {title}
-      </a>
-      <section className="post__details">
-        <span>{score} points by {hnId} {timeToShow} | hide | {descendants} comments </span>
-      </section>
+      <div className="vote" />
+      <div>
+        <a href={url} target="_blank" rel="noopener noreferrer" className="post__title">
+          {title}
+        </a><span class="post__base_url">({toBaseURL(url)})</span>
+        <section className="post__details">
+          <span>{score} points by {hnId} {timeToShow} | hide | {descendants} comments </span>
+        </section>
+      </div>
     </section>
   )
 }

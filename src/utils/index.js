@@ -1,40 +1,38 @@
-// import gql from 'graphql-tag';
+import gql from 'graphql-tag';
 
 
-// export const storyQuery = gql`
-// {
-//   hn2 {
-//     nodeFromHnId(id: "clayallsopp", isUserId: true) {
-//       id
-//       ... on HackerNewsV2User {
-//         submitted(first: 30) {
-//           pageInfo {
-//             hasNextPage
-//             endCursor
-//           }
-//           edges {
-//             cursor
-//             node {
-//               id
-//               ... on HackerNewsV2Story {
-//                 hnId
-// 								score
-//                 url
-//                 title
-//                 time
-//                 descendants
-//                 by {
-//                   id
-//                   hnId
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }`;
+export const STORY_QUERY = gql`
+  query hn2($id: String!, $isUserId: Boolean) {
+    nodeFromHnId(id: $id, isUserId: $isUserId) {
+      id
+      ... on HackerNewsV2User {
+        submitted(first: 30) {
+          pageInfo {
+            hasNextPage
+            endCursor
+          }
+          edges {
+            cursor
+            node {
+              id
+              ... on HackerNewsV2Story {
+                hnId
+								score
+                url
+                title
+                time
+                descendants
+                by {
+                  id
+                  hnId
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}`;
 
 function timeDifference(current, previous) {
   const milliSecondsPerMinute = 60 * 1000;
@@ -68,4 +66,8 @@ export function timeDifferenceForDate(date) {
   const now = new Date().getTime();
   const updated = new Date(date).getTime();
   return timeDifference(now, updated);
+}
+
+export function toBaseURL(fullURL){
+  return fullURL.replace(/(http(s)?:\/\/)|(\/.*){1}/g, '');
 }

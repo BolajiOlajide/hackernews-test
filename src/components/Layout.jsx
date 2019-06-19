@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Layout = ({ children }) => (
-  <main class="container">
+  <main className="container">
     {children}
   </main>
 );

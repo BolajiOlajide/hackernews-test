@@ -1,5 +1,7 @@
 :root {
   --secondary-color: #ff6600;
+  --primary-color: #f6f5ef;
+  --light-dark: #999999;
 }
 
 * {
@@ -13,7 +15,6 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   font-size: calc(0.85rem + 5.3125*(100vw - 801px)/1700);
-  color: #000;
 }
 
 code {
@@ -33,7 +34,7 @@ a {
 }
 
 .container {
-  background: beige;
+  background: var(--primary-color);
   min-height: 100vh;
 }
 
@@ -86,12 +87,27 @@ ol, .post__title {
 
 .hackernews__post {
   margin: 0.4rem 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.vote {
+  width: 0;
+  height: 0.8rem;
+  border-left: 0.3125rem solid transparent;
+  border-right: 0.3125rem solid transparent;
+  border-bottom: 0.5rem solid var(--light-dark);
+  margin-right: 0.3rem;
+}
+
+.post__base_url {
+  font-size: 0.5625rem;
 }
 
 /* desktop view */
 @media (min-width: 48rem) {
   .container {
-    margin: 0 8%;
+    margin: 0.7rem 8%;
   }
 
   .nav__links {
