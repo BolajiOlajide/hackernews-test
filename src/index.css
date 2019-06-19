@@ -7,10 +7,7 @@
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
@@ -32,12 +29,12 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: inherit;
+  font-size: 0.8125rem;
 }
 
 .container {
   background: beige;
   min-height: 100vh;
-  margin: 0 8%;
 }
 
 .hacker_nav {
@@ -48,7 +45,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
 }
 
 .navigation {
@@ -73,8 +70,30 @@ a {
   margin-right: 0.1875rem;
 }
 
+.post-container {
+  padding: 0 1rem;
+  margin: 0.5rem;
+}
+
+ol, .post__title {
+  font-size: 0.8125rem;
+}
+
+.post__details {
+  font-size: 0.5625rem;
+  color: #828282;
+}
+
+.hackernews__post {
+  margin: 0.4rem 0;
+}
+
 /* desktop view */
 @media (min-width: 48rem) {
+  .container {
+    margin: 0 8%;
+  }
+
   .nav__links {
     display: inline-block;
   }
