@@ -3,9 +3,8 @@ import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 
-const httpLink = createHttpLink({
-  uri: 'https://www.graphqlhub.com'
-});
+const uri = 'https://www.graphqlhub.com/playground';
+const httpLink = createHttpLink({ uri });
 
 export default new ApolloClient({
   link: httpLink,
